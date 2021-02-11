@@ -1,0 +1,38 @@
+Converting script [1 / 3]	[\Gun.cs]
+	Fragments : 1
+		[ 0] : Line:   19	InputMethod   GetKey              	(KeyCode.Space)
+
+Converting script [2 / 3]	[\movementSystem.cs]
+	Fragments : 3
+		[ 0] : Line:   23	InputProperty mousePosition       
+		[ 1] : Line:   32	InputMethod   GetAxis             	("Horizontal")
+		[ 2] : Line:   32	InputMethod   GetAxis             	("Vertical")
+
+Converting script [3 / 3]	[\Scripts\SimpleCameraController.cs]
+	Fragments : 17
+		[ 0] : Line:   88	InputMethod   GetKey              	(KeyCode.W)
+		[ 1] : Line:   92	InputMethod   GetKey              	(KeyCode.S)
+		[ 2] : Line:   96	InputMethod   GetKey              	(KeyCode.A)
+		[ 3] : Line:  100	InputMethod   GetKey              	(KeyCode.D)
+		[ 4] : Line:  104	InputMethod   GetKey              	(KeyCode.Q)
+		[ 5] : Line:  108	InputMethod   GetKey              	(KeyCode.E)
+		[ 6] : Line:  122	InputMethod   GetKey              	(KeyCode.Escape)
+		[ 7] : Line:  130	InputMethod   GetMouseButtonDown  	(1)
+		[ 8] : Line:  132	Other mod.	[Cursor.lockState]
+		[ 9] : Line:  136	InputMethod   GetMouseButtonUp    	(1)
+		[10] : Line:  138	Other mod.	[Cursor.visible]
+		[11] : Line:  139	Other mod.	[Cursor.lockState]
+		[12] : Line:  143	InputMethod   GetMouseButton      	(1)
+		[13] : Line:  145	InputMethod   GetAxis             	("Mouse X")
+		[14] : Line:  145	InputMethod   GetAxis             	("Mouse Y")
+		[15] : Line:  157	InputMethod   GetKey              	(KeyCode.LeftShift)
+		[16] : Line:  163	InputProperty mouseScrollDelta    
+
+
+3 scripts modified!
+Overwriting actual scripts...
+	[0 / 3] from  [E:/topdownshooter/CF2-Data/Script-Backups/2021-02-10-19-41\Assets-After/\Gun.cs] to [E:/topdownshooter/Assets/\Gun.cs]
+	[1 / 3] from  [E:/topdownshooter/CF2-Data/Script-Backups/2021-02-10-19-41\Assets-After/\movementSystem.cs] to [E:/topdownshooter/Assets/\movementSystem.cs]
+	[2 / 3] from  [E:/topdownshooter/CF2-Data/Script-Backups/2021-02-10-19-41\Assets-After/\Scripts\SimpleCameraController.cs] to [E:/topdownshooter/Assets/\Scripts\SimpleCameraController.cs]
+
+Overwriting COMPLETED!
