@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
     public List<Transform> gunTip;
     private bool allowFire;
     public FixedJoystick joystick;
+    [Range(0,1)]
+    public float treshold;
     private Vector2 inputs;
     
     private void Start() {
@@ -17,7 +19,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         inputs = new Vector2(joystick.Horizontal, joystick.Vertical);
-        if(inputs.magnitude > 0.4f && allowFire){
+        if(inputs.magnitude > treshold && allowFire){
             StartCoroutine(fire());
         }
     }

@@ -150,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff5b65a8c619340b59028dc2a91816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
-  connectionCheckInterval: 1
 --- !u!4 &38085253
 Transform:
   m_ObjectHideFlags: 0
@@ -1453,6 +1451,7 @@ MonoBehaviour:
   - {fileID: 1871899944}
   - {fileID: 1158151630}
   joystick: {fileID: 939496553}
+  treshold: 0.4
 --- !u!136 &560956423
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2459,6 +2458,7 @@ MonoBehaviour:
   gunTip:
   - {fileID: 418429135}
   joystick: {fileID: 939496553}
+  treshold: 0.4
 --- !u!1 &1373077196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,25 +2624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f0547c3d0f3bd4bad1cb9cb2f0d11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNotifications: 8
-  msgDuration: 3
-  notificationTemplate: {fileID: 2074706712}
-  notificationListBox: {fileID: 55064985}
-  msgUnknownGamepadConnected: 'Unknown device connected : {0}.'
-  msgKnownGamepadConnected: '{0} connected.'
-  msgGamepadDisconnected: '{0} gamepad at slot {1} disconncted.'
-  msgGamepadActivated: '{0} gamepad activated at slot {1}.'
-  msgGamepadDisactivated: '{0} gamepad disactivated at slot {1}.'
-  iconUnknownGamepadConnected: {fileID: 21300000, guid: 9a09435a6c8711d4d824664871bc9413,
-    type: 3}
-  iconKnownGamepadConnected: {fileID: 21300000, guid: 9a09435a6c8711d4d824664871bc9413,
-    type: 3}
-  iconGamepadDisconnected: {fileID: 21300000, guid: 9a09435a6c8711d4d824664871bc9413,
-    type: 3}
-  iconGamepadActivated: {fileID: 21300000, guid: 9a09435a6c8711d4d824664871bc9413,
-    type: 3}
-  iconGamepadDisactivated: {fileID: 21300000, guid: 9a09435a6c8711d4d824664871bc9413,
-    type: 3}
 --- !u!114 &1430376014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3018,10 +2999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2ca803658d2164a8650a2d3cd4c23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  submitGamepadButton: 0
-  submitGamepadButtonAlt: 4
-  cancelGamepadButton: 1
-  cancelGamepadButtonAlt: 5
 --- !u!114 &1640974482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3399,8 +3376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1005d6409cef3040b6b585028ef6215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetText: {fileID: 359856996}
-  targetIcon: {fileID: 1157354249}
 --- !u!114 &2074706713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3626,7 +3601,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101010101
-        actionIsOpen: 010000010100
+        actionIsOpen: 010000010101
         actionStartIndex: 000000000200000004000000060000000c0000000e000000
         actionHashCodes: 5ac852045ac852045ac85204dfd72a044dad0701f804e704
         unityObjectParams: []
