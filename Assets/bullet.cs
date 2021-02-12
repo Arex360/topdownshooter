@@ -17,9 +17,13 @@ public class bullet : MonoBehaviour
     private void FixedUpdate() {
         rigidbody.velocity = this.transform.forward * speed * Time.fixedDeltaTime;
     }
+    private void OnCollisionEnter(Collision other) {
+        Destroy(this.gameObject);
+    }
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("obs")){
             Destroy(other.gameObject);
         }
+        Destroy(this.gameObject);
     }
 }
