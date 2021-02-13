@@ -36,6 +36,7 @@ public class AgentScript : MonoBehaviour
         agent = this.GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         allowFire = true;
+        pathScript = this.GetComponent<PathScript>();
     }
 
     // Update is called once per frame
