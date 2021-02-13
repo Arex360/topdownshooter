@@ -21,7 +21,8 @@ public class bullet : MonoBehaviour
         Destroy(this.gameObject);
     }
     private void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("obs")){
+        Destroy(this.gameObject);
+        if(other.CompareTag("Enemy")){
             Destroy(other.gameObject);
         }
         Destroy(this.gameObject);

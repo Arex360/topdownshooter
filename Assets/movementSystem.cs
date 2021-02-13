@@ -18,7 +18,13 @@ public class movementSystem : MonoBehaviour
     public float horizontalAxis;
     public float verticalAxis;
     public float y;
+    public bool isGrounded;
     public bool UIControl;
+    public float gravity;
+    public Transform groundCheck;
+    [Range(0,1)]
+    public float radius;
+
 
     void Start()
     {
@@ -37,6 +43,24 @@ public class movementSystem : MonoBehaviour
         }
         movment();
         rotation();
+        //Gravity();
+    }
+    private void Gravity(){
+         Ray ray = new Ray(groundCheck.position,-groundCheck.up);
+         Debug.DrawRay(groundCheck.position,-groundCheck.up,Color.red, Mathf.Infinity);
+         RaycastHit hit;
+         if(Physics.Raycast(ray,out hit,radius,mask)){
+            isGrounded = true;
+         }else{
+             isGrounded = false;
+         }
+         if(!isGrounded){
+             rigidbody.velocity = this.transform.up * -gravity * Time.deltaTime;
+         }else{
+             if(inputs.magnitude <= 0){
+                 rigidbody.velocity = Vector3.zero;
+             }
+         }
     }
     private void movment(){
         inputs =  !UIControl? new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")): new Vector2(movementJoystick.Horizontal,movementJoystick.Vertical);
