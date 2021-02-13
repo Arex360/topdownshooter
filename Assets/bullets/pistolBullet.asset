@@ -15,4 +15,4 @@ MonoBehaviour:
   fireRate: 3
   Bullets: {fileID: 162022562405955694, guid: 5ac42e2c800055b4ab0520ccb91f4d25, type: 3}
   damage: 3
-  speed: 3000
+  speed: 2000

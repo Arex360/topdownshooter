@@ -18,13 +18,14 @@ public class bullet : MonoBehaviour
         rigidbody.velocity = this.transform.forward * speed * Time.fixedDeltaTime;
     }
     private void OnCollisionEnter(Collision other) {
-        Destroy(this.gameObject);
+       // Destroy(this.gameObject);
     }
     private void OnTriggerEnter(Collider other) {
         Destroy(this.gameObject);
         if(other.CompareTag("Enemy")){
             Destroy(other.gameObject);
+             Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+       
     }
 }
