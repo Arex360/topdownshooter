@@ -14,12 +14,16 @@ public class AgentScript : MonoBehaviour
     public bullets bullets;
     public Transform gunTip;
     public Transform player;
+    public PathScript pathScript;
     [Header("AI Properties"),Space]
     public AIState botState;
     public float viewRadius;
     public bool playerCatch;
+    
+    public int currentPath;
     [Header("Debugg decisions"),Space]
     public bool idleDecison;
+    public bool  onPath;
     public float attackRate;
     
     public bool attackDecision;
@@ -30,6 +34,7 @@ public class AgentScript : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
+        agent.autoBraking = false;
         allowFire = true;
     }
 
@@ -51,18 +56,31 @@ public class AgentScript : MonoBehaviour
     }
     private void Actions(){
         if(botState == AIState.follow){
+            pathScript.enabled = false;
             agent.SetDestination(player.position);
         }else{
             agent.SetDestination(this.transform.position);
         }
+
+
         if(botState == AIState.attack){
+            pathScript.enabled = false;
             this.transform.LookAt(player.position);
             if(allowFire){
                 StartCoroutine(Attack());
             }
-            
         }
+
+
+        if(botState == AIState.path){
+           pathScript.enabled = true;
+           this.enabled = false;
+        }
+
+
+
     }
+    
     private IEnumerator Attack(){
          allowFire = false;
          GameObject bullet = (GameObject) Instantiate(bullets.Bullets,gunTip.position,gunTip.rotation);
@@ -79,13 +97,13 @@ public class AgentScript : MonoBehaviour
         }
         decisonTime = Random.value;
         if(decisonTime <= 0.45f){
-            print("Waiting for 5 seconds");
+            //print("Waiting for 5 seconds");
             yield return new WaitForSeconds(5);
         }else if(decisonTime <= 0.82f){
-            print("Waiting for 3 seconds");
+           // print("Waiting for 3 seconds");
             yield return new WaitForSeconds(3);
         }else {
-            print("Waiting for 1.5 seconds");
+          //  print("Waiting for 1.5 seconds");
             yield return new WaitForSeconds(1.5f);
         }
         attackDecision = false;
@@ -93,20 +111,20 @@ public class AgentScript : MonoBehaviour
     private IEnumerator IdleDecision(){
         idleDecison = true;
          idleValue = Random.value;
-        if(idleValue > 0.5){
+        if(idleValue > 0.3){
             botState = AIState.path;
         }else{
             botState = AIState.idle;
         }
         decisonTime = Random.value;
         if(decisonTime <= 0.45f){
-            print("Waiting for 5 seconds");
+            //print("Waiting for 5 seconds");
             yield return new WaitForSeconds(5);
         }else if(decisonTime <= 0.82f){
-            print("Waiting for 3 seconds");
+            //print("Waiting for 3 seconds");
             yield return new WaitForSeconds(3);
         }else {
-            print("Waiting for 1.5 seconds");
+           // print("Waiting for 1.5 seconds");
             yield return new WaitForSeconds(1.5f);
         }
        
