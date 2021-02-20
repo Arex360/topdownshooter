@@ -7930,6 +7930,8 @@ MonoBehaviour:
   player: {fileID: 1963778516}
   offset: {x: 0, y: 13, z: 0}
   speed: 12
+  maxOffset: 30
+  offsetSpeed: 5
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0

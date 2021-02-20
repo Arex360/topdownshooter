@@ -30,6 +30,7 @@ public class PathScript : MonoBehaviour
         }
     }
       private IEnumerator FollowPath(){
+          print("debugs");
            onPath = true;
            agent.SetDestination(paths[current].position);
            yield return new WaitForSeconds(5);
